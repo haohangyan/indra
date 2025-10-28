@@ -70,11 +70,6 @@ jobs:
         mkdir -p $HOME/.indra/bio_ontology/$BIOONTOLOGY_VERSION
         wget -nv https://bigmech.s3.amazonaws.com/travis/bio_ontology/$BIOONTOLOGY_VERSION/mock_ontology.pkl -O $HOME/.indra/bio_ontology/$BIOONTOLOGY_VERSION/bio_ontology.pkl
 
-    - name: Set INDRA config
-      run: |
-        mkdir -p ~/.indra
-        cp indra/resources/default_config.ini ~/.indra/config
-
     - name: Run unit tests
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
