@@ -110,7 +110,7 @@ class DisambManager(object):
         if grounding_text:
             da = adeft_disambiguators[agent_txt]
             res = da.disambiguate([grounding_text])
-            ns_and_id, standard_name, disamb_scores = res[0]
+            ns_and_id, standard_name, disamb_scores, _ = res[0]
             # If grounding with highest score is not a positive label we
             # explicitly remove grounding and reset the (potentially incorrectly
             # standardized) name to the original text value.
