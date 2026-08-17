@@ -46,6 +46,11 @@ class TkgProcessor:
                     self.skipped.append(bel_stmt)
                     continue
                 if pp and pp.statements:
+                    evidence_text = entry.get('evidence')
+                    for stmt in pp.statements:
+                        evidence = stmt.evidence[0]
+                        evidence.text = evidence_text
+                        evidence.get_source_hash(refresh=True)
                     self.statements += pp.statements
                 else:
                     self.skipped.append(bel_stmt)
